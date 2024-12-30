@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'; // Import custom CSS for animations and styles
 
 function App() {
   const [total, setTotal] = useState(0);
@@ -25,104 +26,42 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        padding: '20px',
-        fontFamily: 'Arial, sans-serif',
-        backgroundColor: '#121212',
-        color: '#FF0000',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundImage: 'url(https://ninjaexpress.co.id/images/bg_ninja.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textShadow: '3px 3px 10px #000', color: '#FFFFFF' }}>
-        Failed Calculator
-      </h1>
-      <p style={{ fontSize: '1.2rem', color: '#FFF', marginBottom: '20px', textShadow: '1px 1px 5px #000' }}>
-      </p>
-      <div style={{ marginBottom: '20px', width: '90%' }}>
-        <label style={{ fontSize: '1.2rem', color: '#FFF' }}>Total Barang:</label>
+    <div className="app-container">
+      <h1 className="title">Failed Calculator</h1>
+
+      <div className="input-container">
+        <label>Total Barang:</label>
         <input
           type="number"
-          style={{
-            width: '100%',
-            padding: '15px',
-            fontSize: '1rem',
-            borderRadius: '8px',
-            border: '2px solid #FF3333',
-            backgroundColor: '#1E1E1E',
-            color: '#FFF',
-            marginTop: '5px',
-            outline: 'none',
-          }}
           onChange={(e) => setTotal(Number(e.target.value))}
         />
       </div>
-      <div style={{ marginBottom: '20px', width: '90%' }}>
-        <label style={{ fontSize: '1.2rem', color: '#FFF' }}>Failed:</label>
+
+      <div className="input-container">
+        <label>Failed:</label>
         <input
           type="number"
-          style={{
-            width: '100%',
-            padding: '15px',
-            fontSize: '1rem',
-            borderRadius: '8px',
-            border: '2px solid #FF3333',
-            backgroundColor: '#1E1E1E',
-            color: '#FFF',
-            marginTop: '5px',
-            outline: 'none',
-          }}
           onChange={(e) => setSuccess(Number(e.target.value))}
         />
       </div>
-      <button
-        onClick={calculateFailedPercent}
-        style={{
-          padding: '12px 24px',
-          fontSize: '1.2rem',
-          color: '#FFF',
-          backgroundColor: '#FF3333',
-          border: 'none',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          textTransform: 'uppercase',
-          boxShadow: '0 5px 15px rgba(255, 0, 0, 0.5)',
-        }}
-      >
+
+      <button className="calculate-btn" onClick={calculateFailedPercent}>
         Hitung
       </button>
-      <div style={{ marginTop: '30px', textAlign: 'center', width: '90%' }}>
+
+      <div className="result">
         {failedPercent !== null && (
-          <h2
-            style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              textShadow: '2px 2px 10px #000',
-              color: '#FFF',
-            }}
-          >
+          <h2>
             {failedPercent === 'Invalid input'
               ? 'Input Tidak Valid!'
               : `Persentase: ${failedPercent}%`}
           </h2>
         )}
       </div>
-      <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+
+      <div className="stars">
         {[1, 2, 3, 4, 5].map((star) => (
-          <span
-            key={star}
-            style={{
-              fontSize: '2rem',
-              color: star <= rating ? '#FFD700' : '#FFF',
-            }}
-          >
+          <span key={star} className={`star ${star <= rating ? 'filled' : ''}`}>
             ★
           </span>
         ))}
