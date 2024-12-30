@@ -27,6 +27,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className="black-hole"></div> {/* Black hole animation */}
       <h1 className="title">Failed Calculator</h1>
 
       <div className="input-container">
