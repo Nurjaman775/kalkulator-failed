@@ -45,7 +45,6 @@ function App() {
         Failed Calculator
       </h1>
       <p style={{ fontSize: '1.2rem', color: '#FFF', marginBottom: '20px', textShadow: '1px 1px 5px #000' }}>
-        Kalkulator Persentase Gagal
       </p>
       <div style={{ marginBottom: '20px', width: '90%' }}>
         <label style={{ fontSize: '1.2rem', color: '#FFF' }}>Total Barang:</label>
