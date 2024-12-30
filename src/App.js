@@ -20,14 +20,13 @@ function App() {
       else if (percent >= 95 && percent <= 97) setRating(4);
       else if (percent >= 98 && percent <= 100) setRating(5);
     } else {
-      setFailedPercent('Invalid input');
+      setFailedPercent('Input tidak valid');
       setRating(0);
     }
   };
 
   return (
     <div className="app-container">
-      <div className="black-hole"></div> {/* Black hole animation */}
       <h1 className="title">Failed Calculator</h1>
 
       <div className="input-container">
@@ -53,7 +52,7 @@ function App() {
       <div className="result">
         {failedPercent !== null && (
           <h2>
-            {failedPercent === 'Invalid input'
+            {failedPercent === 'Input tidak valid'
               ? 'Input Tidak Valid!'
               : `Persentase: ${failedPercent}%`}
           </h2>
